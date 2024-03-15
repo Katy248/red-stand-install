@@ -12,8 +12,6 @@ dnf install -y \
 	r7-office
 
 # install software as .rpm file
-skype='https://repo.skype.com/rpm/stable/skypeforlinux_8.106.0.210-1.x86_64.rpm'
-masterpdfeditor='https://code-industry.net/public/master-pdf-editor-5.9.82-qt5.x86_64.rpm'
 chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
 zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
@@ -30,9 +28,9 @@ dnf install -y \
 # install software from other repositories
 
 # adding anydesk repository
-cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
+cat > /etc/yum.repos.d/AnyDesk.repo << "EOF" 
 [anydesk]
-name=AnyDesk Fedora - stable
+name=AnyDesk - stable
 baseurl=http://rpm.anydesk.com/fedora/$basearch/
 gpgcheck=1
 repo_gpgcheck=1
@@ -51,9 +49,12 @@ EOF
 
 # adding masterPDFeditor repository
 dnf config-manager --add-repo http://repo.code-industry.net/rpm/master-pdf-editor.repo
+# adding skype repository
+dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
 
 dnf install --skip-broken -y \
 	anydesk \
 	master-pdf-editor \
-	microsoft-edge-stable
+	microsoft-edge-stable \
+	skypeforlinux
 
