@@ -34,12 +34,7 @@ dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge/confi
 
 # install software in repos
 
-packages=(gimp firefox steam yandex-browser-stable r7-office master-pdf-editor microsoft-edge-stable skypeforlinux google-chrome-stable)
-
-for pak in $packages
-do
-	install_package $pak
-done
+dnf install -y gimp firefox steam yandex-browser-stable r7-office master-pdf-editor microsoft-edge-stable skypeforlinux google-chrome-stable
 
 # install software as .rpm file
 
@@ -49,12 +44,8 @@ chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
-remote_packages=($zoom $chromegost $myoffice $anydesk)
+dnf install -y $zoom $chromegost $myoffice $anydesk
 
-for pak in $remote_packages
-do
-	install_package $pak
-done
 
 # another update
 
