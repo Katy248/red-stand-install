@@ -4,8 +4,8 @@ dnf makecache
 dnf upgrade -y
 
 # install software in repos
-dnf install \ 
-	gimp \ 
+dnf install -y \
+	gimp \
 	firefox \
 	steam \
 	yandex-browser-stable \
@@ -17,13 +17,15 @@ masterpdfeditor='https://code-industry.net/public/master-pdf-editor-5.9.82-qt5.x
 chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
 zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
+myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 
 dnf install -y \ 
 	$skype \
 	$masterpdfeditor \
 	$chrome \
 	$zoom \
-	$chromiumgost
+	$chromiumgost \
+	$myoffice
 
 # install software from other repositories
 
