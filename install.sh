@@ -32,10 +32,10 @@ done
 # install software from other repositories
 
 # adding anydesk repository
-cat > /etc/yum.repos.d/AnyDesk.repo << "EOF" 
+cat > /etc/yum.repos.d/AnyDesk-RHEL.repo << "EOF"
 [anydesk]
-name=AnyDesk - stable
-baseurl=http://rpm.anydesk.com/fedora/$basearch/
+name=AnyDesk RHEL - stable
+baseurl=http://rpm.anydesk.com/rhel/$releasever/$basearch/
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
