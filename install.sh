@@ -52,7 +52,7 @@ EOF
 # adding masterPDFeditor repository
 dnf config-manager --add-repo http://repo.code-industry.net/rpm/master-pdf-editor.repo
 
-dnf install -y \
+dnf install --skip-broken -y \
 	anydesk \
 	master-pdf-editor \
 	microsoft-edge-stable
