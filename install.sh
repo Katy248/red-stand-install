@@ -1,15 +1,19 @@
+install_package() {
+	echo "Installing" $1
+	dnf install -y $1
+}
+
 
 # update
 dnf makecache
 dnf upgrade -y
+packages=(gimp firefox steam yandex-browser-stable r7-office)
 
 # install software in repos
-dnf install -y \
-	gimp \
-	firefox \
-	steam \
-	yandex-browser-stable \
-	r7-office
+for pak in $packages
+do
+	install_package $pak
+done
 
 # install software as .rpm file
 chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
@@ -18,12 +22,12 @@ chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 
 echo "Start installing Google Chrome, Zoom, Chromiun GOST, MyOffice"
+remote_packages=($chrome $zoom $chromegost $myoffice)
 
-dnf install -y \ 
-	$chrome \
-	$zoom \
-	$chromiumgost \
-	$myoffice
+for pak in $remote_packages
+do
+	install_package $pak
+done
 
 # install software from other repositories
 
@@ -54,9 +58,10 @@ dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
 
 echo "Start installing AnyDesk, Master PDF editor, MS Edge, Skype"
 
-dnf install --skip-broken -y \
-	anydesk \
-	master-pdf-editor \
-	microsoft-edge-stable \
-	skypeforlinux
+custom_packages=(anydesk master-pdf-editor microsoft-edge-stable skypeforlinux)
 
+for pak in $custom_packages
+do
+	install_package $pak
+done
+	
