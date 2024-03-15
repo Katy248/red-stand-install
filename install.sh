@@ -56,3 +56,6 @@ do
 	install_package $pak
 done
 	
+
+dnf makecache
+dnf upgrade -y
