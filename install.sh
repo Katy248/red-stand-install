@@ -17,9 +17,9 @@ zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 
+echo "Start installing Google Chrome, Zoom, Chromiun GOST, MyOffice"
+
 dnf install -y \ 
-	$skype \
-	$masterpdfeditor \
 	$chrome \
 	$zoom \
 	$chromiumgost \
@@ -51,6 +51,8 @@ EOF
 dnf config-manager --add-repo http://repo.code-industry.net/rpm/master-pdf-editor.repo
 # adding skype repository
 dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
+
+echo "Start installing AnyDesk, Master PDF editor, MS Edge, Skype"
 
 dnf install --skip-broken -y \
 	anydesk \
