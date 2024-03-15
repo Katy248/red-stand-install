@@ -20,9 +20,10 @@ chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.r
 zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
+anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
 echo "Start installing Google Chrome, Zoom, Chromiun GOST, MyOffice"
-remote_packages=($chrome $zoom $chromegost $myoffice)
+remote_packages=($chrome $zoom $chromegost $myoffice $anydesk)
 
 for pak in $remote_packages
 do
@@ -30,16 +31,6 @@ do
 done
 
 # install software from other repositories
-
-# adding anydesk repository
-cat > /etc/yum.repos.d/AnyDesk-RHEL.repo << "EOF"
-[anydesk]
-name=AnyDesk RHEL - stable
-baseurl=http://rpm.anydesk.com/rhel/$releasever/$basearch/
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
-EOF
 
 # adding ms edge repository
 cat > /etc/yum.repos.d/microsoft-edge.repo << "EOF"
@@ -58,7 +49,7 @@ dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
 
 echo "Start installing AnyDesk, Master PDF editor, MS Edge, Skype"
 
-custom_packages=(master-pdf-editor microsoft-edge-stable skypeforlinux anydesk)
+custom_packages=(master-pdf-editor microsoft-edge-stable skypeforlinux)
 
 for pak in $custom_packages
 do
