@@ -34,7 +34,7 @@ dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge/confi
 
 # install software in repos
 
-dnf install -y gimp firefox steam yandex-browser-stable r7-office master-pdf-editor microsoft-edge-stable skypeforlinux google-chrome-stable
+dnf install -y firefox steam yandex-browser-stable gimp r7-office master-pdf-editor microsoft-edge-stable skypeforlinux google-chrome-stable
 
 # install software as .rpm file
 
