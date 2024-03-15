@@ -1,6 +1,6 @@
 install_package() {
 	echo "Installing" $1
-	dnf install -y $1
+	dnf install -y --skip-broken $1
 }
 
 
@@ -58,7 +58,7 @@ dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
 
 echo "Start installing AnyDesk, Master PDF editor, MS Edge, Skype"
 
-custom_packages=(anydesk master-pdf-editor microsoft-edge-stable skypeforlinux)
+custom_packages=(master-pdf-editor microsoft-edge-stable skypeforlinux anydesk)
 
 for pak in $custom_packages
 do
