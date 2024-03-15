@@ -18,6 +18,15 @@ baseurl=https://repo.skype.com/rpm/stable/
 enabled=1
 gpgcheck=0
 EOF
+## adding google chrome repository
+cat > /etc/yum.repos.d/google-chrome.repo << "EOF"
+[google-chrome]
+name=google-chrome
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub
+EOF
 ## adding masterPDFeditor repository
 dnf config-manager --add-repo http://repo.code-industry.net/rpm/master-pdf-editor.repo
 ## adding ms edge repository 
@@ -25,7 +34,7 @@ dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge/confi
 
 # install software in repos
 
-packages=(gimp firefox steam yandex-browser-stable r7-office master-pdf-editor microsoft-edge-stable skypeforlinux)
+packages=(gimp firefox steam yandex-browser-stable r7-office master-pdf-editor microsoft-edge-stable skypeforlinux google-chrome-stable)
 
 for pak in $packages
 do
@@ -35,13 +44,12 @@ done
 # install software as .rpm file
 
 ## files
-chrome='https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
 zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
-remote_packages=($chrome $zoom $chromegost $myoffice $anydesk)
+remote_packages=($zoom $chromegost $myoffice $anydesk)
 
 for pak in $remote_packages
 do
