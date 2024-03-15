@@ -22,7 +22,7 @@ EOF
 ## adding masterPDFeditor repository
 dnf config-manager --add-repo http://repo.code-industry.net/rpm/master-pdf-editor.repo
 ## adding skype repository
-dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
+# dnf config-manager --add-repo https://repo.skype.com/rpm/stable/
 ## adding ms edge repository 
 dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge/config.repo
 
