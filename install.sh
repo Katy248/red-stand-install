@@ -5,13 +5,13 @@ update_packages() {
     dnf upgrade -y
 }
 install_packages() {
-    for pak in $#
+    for pak in $@
     do
-        dnf install -y $pak
+        dnf install -y --skip-broken $pak
     done
 }
 add_repositories() {
-    for repo in $#
+    for repo in $@
     do
         dnf config-manager --add-repo $repo
     done
