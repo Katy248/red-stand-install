@@ -7,4 +7,4 @@ mkdir $dir
 cd $dir
 git clone $repository $dir
 
-bash install.sh
+sudo bash install.sh
