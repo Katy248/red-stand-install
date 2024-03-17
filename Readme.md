@@ -5,5 +5,5 @@
 To run script without git run this:
 
 ```bash
-curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/install.sh > install.sh && sudo bash install.sh
+sudo curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/one-script-install.sh | sudo bash 
 ```
