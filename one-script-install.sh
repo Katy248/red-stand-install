@@ -5,6 +5,6 @@ dnf install git
 
 mkdir $dir
 cd $dir
-git clone $repository $dir
+git clone $repository .
 
 sudo bash install.sh
