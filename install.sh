@@ -19,7 +19,7 @@ add_repositories() {
 
 update_packages
 
-add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/microsoft-skypre.repo' './repositories/google-chrome.repo'
+add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/microsoft-skype.repo' './repositories/google-chrome.repo'
 
 zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
