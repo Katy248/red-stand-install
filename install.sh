@@ -17,6 +17,13 @@ add_repositories() {
     done
 }
 
+echo ""
+echo "░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█░░░█░░░█▀█░▀█▀░▀█▀░█▀█░█▀█"
+echo "░░█░░█░█░▀▀█░░█░░█▀█░█░░░█░░░█▀█░░█░░░█░░█░█░█░█"
+echo "░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀"
+echo ""
+echo ""
+
 update_packages
 
 add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/microsoft-skype.repo' './repositories/google-chrome.repo'
@@ -29,3 +36,9 @@ anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 install_packages steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable $chromegost gimp r7-office master-pdf-editor $myoffice skypeforlinux $zoom $anydesk
 
 update_packages
+echo ""
+echo ""
+echo "░█▀▄░█▀█░█▀█░█▀▀░░░█ "
+echo "░█░█░█░█░█░█░█▀▀░░░▀ "
+echo "░▀▀░░▀▀▀░▀░▀░▀▀▀░░░▀ "
+echo ""
