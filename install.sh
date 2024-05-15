@@ -16,7 +16,22 @@ add_repositories() {
         dnf config-manager --add-repo $repo
     done
 }
+disable_screen_locking() {
+    if [[$XDG_CURRENT_DESKTOP -eq "GNOME"]]; then
+        # disable screen blank
+        gsettings set org.gnome.desktop.session idle-delay 0
+        # disable autosuspend from ac
+        gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing"
+        # disable autosuspend from battery
+        gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing"
+    elif [[$XDG_CURRENT_DESKTOP -eq "KDE"]]; then
+        
+    elif [[$XDG_CURRENT_DESKTOP -eq "MATE"]]; then
+        
+    fi
+}
 
+echo ""
 echo ""
 echo "░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█░░░█░░░█▀█░▀█▀░▀█▀░█▀█░█▀█"
 echo "░░█░░█░█░▀▀█░░█░░█▀█░█░░░█░░░█▀█░░█░░░█░░█░█░█░█"
@@ -35,10 +50,13 @@ anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
 install_packages steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable $chromegost gimp r7-office master-pdf-editor $myoffice skypeforlinux $zoom $anydesk
 
+disable_screen_locking
+
 update_packages
 echo ""
 echo ""
 echo "░█▀▄░█▀█░█▀█░█▀▀░░░█ "
 echo "░█░█░█░█░█░█░█▀▀░░░▀ "
 echo "░▀▀░░▀▀▀░▀░▀░▀▀▀░░░▀ "
+echo ""
 echo ""
