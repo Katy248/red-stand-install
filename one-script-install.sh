@@ -3,7 +3,7 @@
 repository='https://github.com/Katy248/red-stand-install.git'
 dir='install-scripts'
 
-dnf install git
+sudo dnf install git -y
 
 mkdir $dir
 cd $dir
