@@ -1,23 +1,5 @@
 #!/bin/bash
-. ./settings.sh
-. ./shortcuts.sh
-
-update_packages() {
-    dnf makecache
-    dnf upgrade -y
-}
-install_packages() {
-    for pak in $@
-    do
-        dnf install -y --skip-broken "$pak"
-    done
-}
-add_repositories() {
-    for repo in $@
-    do
-        dnf config-manager --add-repo "$repo"
-    done
-}
+. ./scripts.sh
 
 echo ""
 echo ""
@@ -36,7 +18,7 @@ chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
-install_packages steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor skypeforlinux thunderbird $chromegost $zoom $anydesk $myoffice
+install_packages steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor skypeforlinux thunderbird "$chromegost" "$zoom" "$anydesk" "$myoffice"
 
 disable_screen_locking
 

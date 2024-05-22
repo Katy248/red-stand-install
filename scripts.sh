@@ -1,5 +1,29 @@
 #!/bin/bash
+update_packages() {
+    dnf makecache
+    dnf upgrade -y
+}
+install_packages() {
+    for pak in $@
+    do
+        dnf install -y --skip-broken "$pak"
+    done
+}
+add_repositories() {
+    for repo in $@
+    do
+        dnf config-manager --add-repo "$repo"
+    done
+}
+add_shortcuts() {
 
+    desktop_dir=$(xdg-user-dir DESKTOP)
+
+    for app in $@
+    do
+        ln -s "/usr/share/applications/$app.desktop" "$desktop_dir/$app.desktop"
+    done
+}
 disable_screen_locking() {
     if [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]]; then
         # disable screen blank
