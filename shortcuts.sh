@@ -6,6 +6,6 @@ add_shortcuts() {
 
     for app in $@
     do
-        ls -s "/usr/share/applications/$app.desktop" "$desktop_dir/$app.desktop"
+        ln -s "/usr/share/applications/$app.desktop" "$desktop_dir/$app.desktop"
     done
 }
