@@ -18,3 +18,4 @@ disable_screen_locking() {
         
     fi
 }
+
