@@ -9,8 +9,6 @@ mkdir $dir
 cd $dir
 git clone $repository .
 
-chmode +x install.sh
-
 echo "Repository now in '$dir'. Use:"
 echo "cd $dir"
 echo ""

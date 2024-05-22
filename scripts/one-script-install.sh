@@ -9,6 +9,4 @@ mkdir $dir
 cd $dir
 git clone $repository .
 
-chmode +x install.sh
-
-sudo --preserve-env=HOME bash install.sh --install-programs --disable-screenlock --add-shortcuts
+bash run.sh --install-programs --disable-screenlock --add-shortcuts
