@@ -34,15 +34,8 @@ for i in "$@"; do
   esac
 done
 
+lolcat drawings/installation.txt
 
-
-echo ""
-echo ""
-echo "░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█░░░█░░░█▀█░▀█▀░▀█▀░█▀█░█▀█"
-echo "░░█░░█░█░▀▀█░░█░░█▀█░█░░░█░░░█▀█░░█░░░█░░█░█░█░█"
-echo "░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀"
-echo ""
-echo ""
 
 if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
 
@@ -73,10 +66,5 @@ add_shortcuts Zoom yandex-browser steam skypeforlinux r7-office-desktopeditors m
 
 fi
 
-echo ""
-echo ""
-echo "░█▀▄░█▀█░█▀█░█▀▀░░░█ "
-echo "░█░█░█░█░█░█░█▀▀░░░▀ "
-echo "░▀▀░░▀▀▀░▀░▀░▀▀▀░░░▀ "
-echo ""
-echo ""
+lolcat drawings/done.txt
+
