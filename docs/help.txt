@@ -1,5 +1,6 @@
 Usage:
     sudo --preserve-env=HOME ./install.sh [options]
+    ./run.sh [options]
 
 Options:
     -as, --add-shortcuts            Add programs shortcuts to the user's desktop directory
