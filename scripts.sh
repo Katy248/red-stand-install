@@ -17,7 +17,7 @@ add_repositories() {
 }
 add_shortcuts() {
 
-    desktop_dir=$(xdg-user-dir DESKTOP)
+    desktop_dir=$(sudo -u "$USER" xdg-user-dir DESKTOP)
 
     for app in $@
     do
