@@ -9,4 +9,4 @@ mkdir $dir
 cd $dir
 git clone $repository .
 
-sudo bash install.sh --install-programs --disable-screenlock --add-shortcuts
+sudo bash run.sh --install-programs --disable-screenlock --add-shortcuts
