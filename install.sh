@@ -5,6 +5,14 @@ INSTALL_PROGRAMS=0
 DISABLE_SCREENLOCKER=0
 ADD_DESKTOP_SHORTCUTS=0
 
+red=$(tput setaf 9)
+normal=$(tput sgr0)
+
+if [[ "$(whoami)" != "root" ]]; then
+    echo "${red}This command should be run as root${normal}"
+    exit 1
+fi
+
 for i in "$@"; do
   case $i in
     -ip|--install-programs)
@@ -23,13 +31,10 @@ for i in "$@"; do
       cat docs/help.txt
       exit 0
       ;;
-    -*|--*)
-      echo "Unknown option $i"
+    -*|--*|*)
+      echo "${red}Unknown option $i ${normal}"
       echo "Use \`--help\` to show all options"
       exit 1
-      ;;
-    *)
-        exit 1
       ;;
   esac
 done
