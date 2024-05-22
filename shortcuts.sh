@@ -2,7 +2,7 @@
 
 add_shortcuts() {
 
-    desktop_dir=$(xdg-user-dirs DESKTOP)
+    desktop_dir=$(xdg-user-dir DESKTOP)
 
     for app in $@
     do
