@@ -1,3 +1,5 @@
+#!/bin/bash
+
 repository='https://github.com/Katy248/red-stand-install.git'
 dir='install-scripts'
 
