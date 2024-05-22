@@ -26,6 +26,7 @@ add_shortcuts() {
 }
 disable_screen_locking() {
     if [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]]; then
+    
         # disable screen blank
         gsettings set org.gnome.desktop.session idle-delay 0
         # disable autosuspend from ac
@@ -33,11 +34,19 @@ disable_screen_locking() {
         # disable autosuspend from battery
         gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing"
 
-        echo "GNOME"
     elif [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
-        echo "KDE"
+
+        lock_config="~/.config/kscreenlockerrc"
+
+        echo "[Daemon]" > "$lock_config"
+        echo "Autolock=false" > "$lock_config"
+        echo "LockOnResume=false" > "$lock_config"
+        echo "Timeout=4" > "$lock_config"
+        echo "LockGrace=5" > "$lock_config"
         
     elif [[ "$XDG_CURRENT_DESKTOP" == "MATE" ]]; then
+        
+        # TODO: ---
         echo "MATE"
         
     fi
