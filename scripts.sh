@@ -18,6 +18,7 @@ add_repositories() {
 add_shortcuts() {
 
     desktop_dir=$(sudo -u "$USER" xdg-user-dir DESKTOP)
+    echo $desktop_dir
 
     for app in $@
     do
@@ -54,4 +55,3 @@ disable_screen_locking() {
         
     fi
 }
-

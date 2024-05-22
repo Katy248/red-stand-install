@@ -6,16 +6,13 @@ DISABLE_SCREENLOCKER=0
 ADD_DESKTOP_SHORTCUTS=0
 
 red=$(tput setaf 9)
+green=$(tput setaf 10)
 normal=$(tput sgr0)
 
-if [[ "$(whoami)" != "root" ]]; then
-    echo "${red}This command should be run as root${normal}"
-    exit 1
-fi
 
 for i in "$@"; do
   case $i in
-    -ip|--install-programs)
+    -i|-ip|--install-programs)
       INSTALL_PROGRAMS=1
       shift # past argument=value
       ;;
@@ -38,6 +35,12 @@ for i in "$@"; do
       ;;
   esac
 done
+
+if [[ "$(whoami)" != "root" ]]; then
+    echo "${red}This command should be run as root${normal}"
+    echo "${green}Remember to use \`--preserve-env=HOME\` as sudo parameter${normal}"
+    exit 1
+fi
 
 lolcat drawings/installation.txt
 

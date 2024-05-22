@@ -11,4 +11,4 @@ git clone $repository .
 
 chmode +x install.sh
 
-sudo bash install.sh --install-programs --disable-screenlock --add-shortcuts
+sudo --preserve-env=HOME bash install.sh --install-programs --disable-screenlock --add-shortcuts

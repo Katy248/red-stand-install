@@ -1,8 +1,10 @@
 Usage:
-    ./install.sh [options]
+    sudo --preserve-env=HOME ./install.sh [options]
 
 Options:
-    --add-shortcuts         Add programs shortcuts to the user's desktop directory
-    --disable-screenlock    Disable automatic screen lock
-    --install-programs      Install programs
-    --help                  Print help message and exit
+    -as, --add-shortcuts            Add programs shortcuts to the user's desktop directory
+    -ds, --disable-screenlock       Disable automatic screen lock
+    -i, -ip, --install-programs     Install programs
+    --help                          Print help message and exit
+                                    
+! Remember to use `--preserve-env=HOME` as sudo parameter
