@@ -19,15 +19,17 @@ for i in "$@"; do
       ADD_DESKTOP_SHORTCUTS=1
       shift # past argument with no value
       ;;
-    -help|--help)
+    -h|--help)
       cat docs/help.txt
       exit 0
       ;;
     -*|--*)
       echo "Unknown option $i"
+      echo "Use \`--help\` to show all options"
       exit 1
       ;;
     *)
+        exit 1
       ;;
   esac
 done
