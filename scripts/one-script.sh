@@ -9,4 +9,8 @@ mkdir $dir
 cd $dir
 git clone $repository .
 
-sudo bash install.sh --install-programs --disable-screenlock --add-shortcuts
+chmode +x install.sh
+
+echo "Repository now in '$dir'. Use:"
+echo "cd $dir"
+echo ""

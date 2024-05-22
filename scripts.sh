@@ -21,12 +21,15 @@ add_shortcuts() {
 
     for app in $@
     do
-        ln -s "/usr/share/applications/$app.desktop" "$desktop_dir/$app.desktop"
+        link_file="/usr/share/applications/$app.desktop"
+        if [[ -f "$link_file" ]]; then
+            ln -s "$link_file" "$desktop_dir/$app.desktop"
+        fi
     done
 }
 disable_screen_locking() {
     if [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]]; then
-    
+
         # disable screen blank
         gsettings set org.gnome.desktop.session idle-delay 0
         # disable autosuspend from ac

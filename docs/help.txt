@@ -1,0 +1,8 @@
+Usage:
+    ./install.sh [options]
+
+Options:
+    --add-shortcuts         Add programs shortcuts to the user's desktop directory
+    --disable-screenlock    Disable automatic screen lock
+    --install-programs      Install programs
+    --help                  Print help message and exit

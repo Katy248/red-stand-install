@@ -19,6 +19,10 @@ for i in "$@"; do
       ADD_DESKTOP_SHORTCUTS=1
       shift # past argument with no value
       ;;
+    -help|--help)
+      cat docs/help.txt
+      exit 0
+      ;;
     -*|--*)
       echo "Unknown option $i"
       exit 1
