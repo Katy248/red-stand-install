@@ -17,16 +17,16 @@ add_repositories() {
     done
 }
 disable_screen_locking() {
-    if [[$XDG_CURRENT_DESKTOP -eq "GNOME"]]; then
+    if [[$XDG_CURRENT_DESKTOP == "GNOME"]]; then
         # disable screen blank
         gsettings set org.gnome.desktop.session idle-delay 0
         # disable autosuspend from ac
         gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing"
         # disable autosuspend from battery
         gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing"
-    elif [[$XDG_CURRENT_DESKTOP -eq "KDE"]]; then
+    elif [[$XDG_CURRENT_DESKTOP == "KDE"]]; then
         
-    elif [[$XDG_CURRENT_DESKTOP -eq "MATE"]]; then
+    elif [[$XDG_CURRENT_DESKTOP == "MATE"]]; then
         
     fi
 }
