@@ -9,19 +9,36 @@ red=$(tput setaf 9)
 green=$(tput setaf 10)
 normal=$(tput sgr0)
 
+check_root() {
+  if [[ "$(whoami)" != "root" ]]; then
+    echo "${red}This command should be run as root${normal}"
+    echo "${green}Remember to use \`--preserve-env=HOME\` as sudo parameter${normal}"
+    exit 1
+fi
+}
+check_no_root() {
+  if [[ "$(whoami)" == "root" ]]; then
+    echo "${red}This command should NOT be run as root${normal}"
+    exit 1
+fi
+}
+
 
 for i in "$@"; do
   case $i in
     -i|-ip|--install-programs)
       INSTALL_PROGRAMS=1
+      check_root
       shift # past argument=value
       ;;
     -ds|--disable-screenlock)
       DISABLE_SCREENLOCKER=1
+      check_root
       shift # past argument=value
       ;;
     --as|--add-shortcuts)
       ADD_DESKTOP_SHORTCUTS=1
+      check_no_root
       shift # past argument with no value
       ;;
     -h|--help)
@@ -36,11 +53,6 @@ for i in "$@"; do
   esac
 done
 
-if [[ "$(whoami)" != "root" ]]; then
-    echo "${red}This command should be run as root${normal}"
-    echo "${green}Remember to use \`--preserve-env=HOME\` as sudo parameter${normal}"
-    exit 1
-fi
 
 lolcat drawings/installation.txt
 
