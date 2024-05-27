@@ -53,8 +53,11 @@ for i in "$@"; do
   esac
 done
 
-
-lolcat drawings/installation.txt
+if [[ $(command -v lolcat) != "" ]]; then
+  lolcat drawings/installation.txt
+else
+  cat drawings/installation.txt
+fi
 
 
 if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
@@ -75,16 +78,15 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
 fi
 
 if [[ "$DISABLE_SCREENLOCKER" == 1 ]]; then
-
     disable_screen_locking
-
 fi
 
 if [[ "$ADD_DESKTOP_SHORTCUTS" == 1 ]]; then
-
-add_shortcuts Zoom yandex-browser steam skypeforlinux r7-office-desktopeditors microsoft-edge google-chrome chromium-gost gimp masterpdfeditor5 myoffice-text-home-edition 
-
+  add_shortcuts Zoom yandex-browser steam skypeforlinux r7-office-desktopeditors microsoft-edge google-chrome   chromium-gost gimp masterpdfeditor5 myoffice-text-home-edition 
 fi
 
-lolcat drawings/done.txt
-
+if [[ $(command -v lolcat) != "" ]]; then
+  lolcat drawings/done.txt
+else
+  cat drawings/done.txt
+fi
