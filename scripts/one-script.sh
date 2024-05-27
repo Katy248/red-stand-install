@@ -6,9 +6,8 @@ dir='install-scripts'
 sudo dnf install git -y
 sudo dnf install lolcat -y
 
-mkdir $dir
-cd $dir
-git clone $repository .
+mkdir "$dir"
+git clone "$repository" "$dir"
 
 echo "Repository now in '$dir'. Use:"
 echo "cd $dir"

@@ -6,9 +6,9 @@ dir='install-scripts'
 sudo dnf install git -y
 sudo dnf install lolcat -y
 
-mkdir $dir
-cd $dir
-git clone $repository .
+mkdir "$dir"
+cd "$dir" || exit 1
+git clone "$repository" .
 
-sudo bash install.sh --install-programs --disable-screenlock
+sudo bash install.sh --install-programs --disable-screen-lock
 bash install.sh --add-shortcuts
