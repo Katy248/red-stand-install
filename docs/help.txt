@@ -2,10 +2,13 @@ Usage:
     [sudo] ./install.sh [options]
 
 Options:
-    -as, --add-shortcuts            Add programs shortcuts to the user's desktop directory (do not run as root)
-    -ds, --disable-screen-lock      Disable automatic screen lock (work only for Gnome and KDE)
+    -as, --add-shortcuts            Add programs shortcuts to the user's desktop 
+                                    directory (do not run as root)
+    -ds, --disable-screen-lock      Disable automatic screen lock (work only for
+                                    Gnome and KDE)
     -i, -ip, --install-programs     Install programs
-    --list-programs                 Print programs to install into standard output and exit 
+    --list-programs                 Print programs to install into standard 
+                                    output and exit 
     -h, --help                      Print help message and exit
 
 red-stand-install script by Katy248
