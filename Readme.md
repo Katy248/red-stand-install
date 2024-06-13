@@ -5,6 +5,9 @@
 - [X] Install programs
 - [X] Add desktop icons
 - [ ] Change sleep settings
+  - [X] GNOME
+  - [X] KDE
+  - [ ] Mate
 
 ## One script run
 
