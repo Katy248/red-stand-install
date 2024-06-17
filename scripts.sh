@@ -3,6 +3,12 @@ update_packages() {
     dnf makecache
     dnf upgrade -y
 }
+install_snaps() {
+    for pak in $@ 
+    do
+        snap install "$pak" -y
+    done
+}
 install_packages() {
     for pak in $@
     do

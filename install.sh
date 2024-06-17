@@ -10,7 +10,9 @@ chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
-PROGRAMS_TO_INSTALL=(steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor skypeforlinux thunderbird "$chromegost" "$zoom" "$anydesk" "$myoffice")
+PROGRAMS_TO_INSTALL=(steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor thunderbird "$chromegost" "$zoom" "$anydesk" "$myoffice" snapd)
+
+SNAPS_TO_INSTALL=(skype)
 
 red=$(tput setaf 9)
 green=$(tput setaf 10)
@@ -49,7 +51,16 @@ for i in "$@"; do
         shift # past argument with no value
         ;;
     --list-programs)
+        echo "# rpm packages:"
+        echo "---"
         for p in "${PROGRAMS_TO_INSTALL[@]}"; do
+            echo "$p"
+        done
+        echo ""
+        
+        echo "# snap packages:"
+        echo "---"
+        for p in "${SNAPS_TO_INSTALL[@]}"; do
             echo "$p"
         done
         exit 0

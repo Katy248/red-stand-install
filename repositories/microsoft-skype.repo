@@ -1,5 +1,0 @@
-[microsoft-skype]
-name=microsoft-skype
-baseurl=https://repo.skype.com/rpm/stable/
-enabled=1
-gpgcheck=0
