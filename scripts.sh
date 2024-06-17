@@ -3,6 +3,12 @@ update_packages() {
     dnf makecache
     dnf upgrade -y
 }
+install_packages() {
+    for pak in $@
+    do
+        dnf install -y --skip-broken "$pak"
+    done
+}
 setup_snap() {
     systemctl enable --now snapd
 }
@@ -15,16 +21,13 @@ install_snaps() {
 setup_flathub() {
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
+update_flatpaks() {
+    flatpak upgrade -y
+}
 install_flatpaks() {
     for pak in $@ 
     do
         flatpak install "$pak" -y
-    done
-}
-install_packages() {
-    for pak in $@
-    do
-        dnf install -y --skip-broken "$pak"
     done
 }
 add_repositories() {

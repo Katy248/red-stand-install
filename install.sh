@@ -103,7 +103,9 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
     install_snaps "${SNAPS_TO_INSTALL[@]}"
 
     setup_flathub
+    update_flatpaks
     install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
+    update_flatpaks
 fi
 
 if [[ "$DISABLE_SCREENLOCKER" == 1 ]]; then
