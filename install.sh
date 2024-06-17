@@ -99,9 +99,10 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
     install_packages "${PROGRAMS_TO_INSTALL[@]}"
     update_packages
 
-    update_snap
+    setup_snap
     install_snaps "${SNAPS_TO_INSTALL[@]}"
 
+    setup_flathub
     install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
 fi
 
