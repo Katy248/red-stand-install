@@ -5,7 +5,7 @@ INSTALL_PROGRAMS=0
 DISABLE_SCREENLOCKER=0
 ADD_DESKTOP_SHORTCUTS=0
 
-chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-126.0.6478.56-linux-amd64.rpm'
+chromegost='https://github.com/deemru/Chromium-Gost/releases/download/126.0.6478.56/chromium-gost-126.0.6478.56-linux-amd64.rpm'
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
