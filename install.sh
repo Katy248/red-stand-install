@@ -96,13 +96,13 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
     update_packages
 
     add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/google-chrome.repo'
-
     install_packages "${PROGRAMS_TO_INSTALL[@]}"
-    install_snaps "${SNAPS_TO_INSTALL[@]}"
-    install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
-    
     update_packages
 
+    update_snap
+    install_snaps "${SNAPS_TO_INSTALL[@]}"
+
+    install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
 fi
 
 if [[ "$DISABLE_SCREENLOCKER" == 1 ]]; then

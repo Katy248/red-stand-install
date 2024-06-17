@@ -3,10 +3,13 @@ update_packages() {
     dnf makecache
     dnf upgrade -y
 }
+update_snap() {
+    systemctl enable --now snapd
+}
 install_snaps() {
     for pak in $@ 
     do
-        snap install "$pak" -y
+        snap install "$pak"
     done
 }
 install_flatpaks() {
