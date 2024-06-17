@@ -22,7 +22,6 @@ normal=$(tput sgr0)
 check_root() {
   if [[ "$(whoami)" != "root" ]]; then
     echo "${red}This command should be run as root${normal}"
-    echo "${green}Remember to use \`--preserve-env=HOME\` as sudo parameter${normal}"
     exit 1
 fi
 }
