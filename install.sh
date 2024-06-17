@@ -5,14 +5,15 @@ INSTALL_PROGRAMS=0
 DISABLE_SCREENLOCKER=0
 ADD_DESKTOP_SHORTCUTS=0
 
-zoom='https://zoom.us/client/5.17.11.3835/zoom_x86_64.rpm'
 chromegost='https://github.com/deemru/Chromium-Gost/releases/download/122.0.6261.112/chromium-gost-122.0.6261.112-linux-amd64.rpm'
 myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
 anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
 
-PROGRAMS_TO_INSTALL=(steam firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor thunderbird "$chromegost" "$zoom" "$anydesk" "$myoffice" snapd)
+PROGRAMS_TO_INSTALL=(firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor thunderbird "$chromegost" "$anydesk" "$myoffice" snapd)
 
 SNAPS_TO_INSTALL=(skype)
+
+FLATPAKS_TO_INSTALL=("us.zoom.Zoom" "com.valvesoftware.Steam")
 
 red=$(tput setaf 9)
 green=$(tput setaf 10)
@@ -51,16 +52,23 @@ for i in "$@"; do
         shift # past argument with no value
         ;;
     --list-programs)
-        echo "# rpm packages:"
+        echo "# \`RPM\` packages"
         echo "---"
         for p in "${PROGRAMS_TO_INSTALL[@]}"; do
             echo "$p"
         done
         echo ""
-        
-        echo "# snap packages:"
+
+        echo "# \`Snap\` packages"
         echo "---"
         for p in "${SNAPS_TO_INSTALL[@]}"; do
+            echo "$p"
+        done
+        echo ""
+
+        echo "# \`Flatpak\` packages"
+        echo "---"
+        for p in "${FLATPAKS_TO_INSTALL[@]}"; do
             echo "$p"
         done
         exit 0
@@ -88,9 +96,11 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
 
     update_packages
 
-    add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/microsoft-skype.repo' './repositories/google-chrome.repo'
+    add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/google-chrome.repo'
 
     install_packages "${PROGRAMS_TO_INSTALL[@]}"
+    install_snaps "${SNAPS_TO_INSTALL[@]}"
+    install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
     
     update_packages
 

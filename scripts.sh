@@ -9,6 +9,12 @@ install_snaps() {
         snap install "$pak" -y
     done
 }
+install_flatpaks() {
+    for pak in $@ 
+    do
+        flatpack install "$pak" -y
+    done
+}
 install_packages() {
     for pak in $@
     do
