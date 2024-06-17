@@ -18,7 +18,7 @@ setup_flathub() {
 install_flatpaks() {
     for pak in $@ 
     do
-        flatpack install "$pak" -y
+        flatpak install "$pak" -y
     done
 }
 install_packages() {
