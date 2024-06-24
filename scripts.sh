@@ -45,16 +45,14 @@ add_shortcuts() {
     desktop_dir="$(xdg-user-dir DESKTOP)"
     print_log "Desktop directory: '$desktop_dir'"
 
-    for app in $@
+    for shortcut in $@
     do
-        print_log "Trying to add '$app' shortcut"
-        link_file="/usr/share/applications/$app.desktop"
-        destination_file="$desktop_dir/$app"
-        if [[ -f "$link_file" ]]; then
-            print_log "Desktop file path for '$app': '$link_file'"
-            ln -s "$link_file" "$destination_file"
+        destination="$desktop_dir/"
+        if [[ -f "$shortcut" ]]; then
+            print_log "Create link for '$shortcut'"
+            ln -s "$shortcut" "$destination"
         else
-            print_log "Icon for '$app' did not found" "WARN"
+            print_log "Desktop file '$shortcut' did not found" "WARN"
         fi
     done
 }
