@@ -7,6 +7,7 @@ Options:
     -ds, --disable-screen-lock      Disable automatic screen lock (work only for
                                     Gnome and KDE)
     -i, -ip, --install-programs     Install programs
+    --no-upgrade                    Disables packages upgrades during script run
     --list-programs                 Print programs to install into standard 
                                     output and exit 
     -md, --md                       Enable markdown formatting for outputs
