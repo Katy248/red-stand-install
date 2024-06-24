@@ -51,7 +51,7 @@ for i in "$@"; do
         LIST_PROGRAMS_TO_INSTALL=1
         shift
         ;;
-    -d|--md)
+    -md|--md)
         ENABLE_MD_FORMAT=1
         shift
         ;;
@@ -85,13 +85,13 @@ done
 
 if [[ "$LIST_PROGRAMS_TO_INSTALL" == 1 ]]; then
 
-    print_header "\`RPM\` packages"
+    print_header "\`RPM\` packages" 3
     print_list "${PROGRAMS_TO_INSTALL[@]}"
 
-    print_header "\`Snap\` packages"
+    print_header "\`Snap\` packages" 3
     print_list "${SNAPS_TO_INSTALL[@]}"
 
-    print_header "\`Flatpak\` packages"
+    print_header "\`Flatpak\` packages" 3
     print_list "${FLATPAKS_TO_INSTALL[@]}"
     exit 0
 

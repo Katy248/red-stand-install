@@ -98,9 +98,16 @@ bold=$(tput bold)
 print_header() {
     printf ${bold}
     if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
-        printf "### $@\n\n"
+
+        header=""
+        for i in $(seq 1 $2); do
+            header="${header}#"
+        done
+
+
+        printf "${header} $1\n\n"
     else
-        printf "$@:\n"
+        printf "$1\n"
     fi
     printf ${normal}
 }
