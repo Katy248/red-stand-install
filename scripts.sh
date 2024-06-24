@@ -76,9 +76,8 @@ disable_screen_locking() {
         
     elif [[ "$XDG_CURRENT_DESKTOP" == "MATE" ]]; then
         
-        # TODO: ---
-        echo "MATE"
-        
+        # TODO: Make rules for MATE DE
+        print_error "MATE Currently not supported for screenlock disabling"
     fi
 }
 
