@@ -104,13 +104,13 @@ fi
 
 if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
 
-    if [[ "$NO_UPGRADE" == 0]]; then
+    if [[ "$NO_UPGRADE" == 0 ]]; then
         update_packages
     fi
 
     add_repositories "${ADDITIONAL_REPOSITORIES[@]}"
     install_packages "${PROGRAMS_TO_INSTALL[@]}"
-    if [[ "$NO_UPGRADE" == 0]]; then
+    if [[ "$NO_UPGRADE" == 0 ]]; then
         update_packages
     fi
 
@@ -118,11 +118,11 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
     install_snaps "${SNAPS_TO_INSTALL[@]}"
 
     setup_flathub
-    if [[ "$NO_UPGRADE" == 0]]; then
+    if [[ "$NO_UPGRADE" == 0 ]]; then
         update_flatpaks
     fi
     install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
-    if [[ "$NO_UPGRADE" == 0]]; then
+    if [[ "$NO_UPGRADE" == 0 ]]; then
         update_flatpaks
     fi
 fi
