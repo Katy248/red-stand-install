@@ -6,6 +6,7 @@ update_packages() {
 install_packages() {
     for pak in $@
     do
+        print_log "Installing rpm package '$pak'"
         dnf install -y --skip-broken "$pak"
     done
 }
@@ -15,13 +16,16 @@ setup_snap() {
 install_snaps() {
     for pak in $@ 
     do
+        print_log "Installing snap package '$pak'"
         snap install "$pak"
     done
 }
 setup_flathub() {
+    print_log "Adding flathub repository"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 update_flatpaks() {
+    print_log "Upgrading flatpaks"
     flatpak upgrade -y
 }
 install_flatpaks() {
@@ -117,7 +121,7 @@ print_list() {
     fi
 }
 print_error() {
-    echo "${red}$1${normal}" >&2 # &2 is stderr 
+    echo "${red}ERROR: $1${normal}" >&2 # &2 is stderr 
 }
 
 print_log() {

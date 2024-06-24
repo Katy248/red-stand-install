@@ -59,6 +59,10 @@ for i in "$@"; do
         NOLOGO=1
         shift
         ;;
+    --no-upgrade)
+        NO_UPGRADE=1
+        shift
+        ;;
     --config=*)
         CONFIG_FILE_PATH="${i#*=}"
         shift
