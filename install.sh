@@ -1,37 +1,34 @@
 #!/bin/bash
 . ./scripts.sh
+. ./consts.sh
+. ./config.sh
 
-INSTALL_PROGRAMS=0
-DISABLE_SCREENLOCKER=0
-ADD_DESKTOP_SHORTCUTS=0
 
-chromegost='https://github.com/deemru/Chromium-Gost/releases/download/126.0.6478.56/chromium-gost-126.0.6478.56-linux-amd64.rpm'
-myoffice='https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm'
-anydesk='https://download.anydesk.com/linux/anydesk_6.3.0-1_x86_64.rpm'
-
-PROGRAMS_TO_INSTALL=(firefox yandex-browser-stable microsoft-edge-stable google-chrome-stable gimp r7-office master-pdf-editor thunderbird "$chromegost" "$anydesk" "$myoffice" snapd flatpak)
-
-SNAPS_TO_INSTALL=(skype)
-
-FLATPAKS_TO_INSTALL=("us.zoom.Zoom" "com.valvesoftware.Steam")
-
-red=$(tput setaf 9)
-green=$(tput setaf 10)
-normal=$(tput sgr0)
 
 check_root() {
   if [[ "$(whoami)" != "root" ]]; then
-    echo "${red}This command should be run as root${normal}"
+    print_error "This command should be run as root"
     exit 1
 fi
 }
 check_no_root() {
   if [[ "$(whoami)" == "root" ]]; then
-    echo "${red}This command should NOT be run as root${normal}"
+    print_error "This command should NOT be run as root"
     exit 1
 fi
 }
 
+print_logo() {
+    if [[ $(command -v lolcat) != "" ]]; then
+        print_log "Program lolcat founded"
+        lolcat $1
+    else
+        print_log "Program lolcat did not found, cat will be used"
+        cat $1
+    fi
+}
+
+load_config "$CONFIG_FILE_PATH"
 
 for i in "$@"; do
   case $i in
@@ -51,43 +48,53 @@ for i in "$@"; do
         shift # past argument with no value
         ;;
     --list-programs)
-        echo "# \`RPM\` packages"
-        echo "---"
-        for p in "${PROGRAMS_TO_INSTALL[@]}"; do
-            echo "$p"
-        done
-        echo ""
-
-        echo "# \`Snap\` packages"
-        echo "---"
-        for p in "${SNAPS_TO_INSTALL[@]}"; do
-            echo "$p"
-        done
-        echo ""
-
-        echo "# \`Flatpak\` packages"
-        echo "---"
-        for p in "${FLATPAKS_TO_INSTALL[@]}"; do
-            echo "$p"
-        done
-        exit 0
+        LIST_PROGRAMS_TO_INSTALL=1
+        shift
         ;;
-    -h|--help)
+    -d|--md)
+        ENABLE_MD_FORMAT=1
+        shift
+        ;;
+    --nologo)
+        NOLOGO=1
+        shift
+        ;;
+    --config=*)
+        CONFIG_FILE_PATH="${i#*=}"
+        shift
+        ;;
+    --debug)
+        ENABLE_LOGS=1
+        shift
+        ;;
+    -\?|-h|--help)
         cat docs/help.txt
         exit 0
         ;;
     -*|--*|*)
-        echo "${red}Unknown option $i ${normal}"
+        print_error "Unknown option '$i'"
         echo "Use \`--help\` to show all options"
         exit 1
         ;;
   esac
 done
 
-if [[ $(command -v lolcat) != "" ]]; then
-    lolcat drawings/installation.txt
-else
-    cat drawings/installation.txt
+if [[ "$LIST_PROGRAMS_TO_INSTALL" == 1 ]]; then
+
+    print_header "\`RPM\` packages"
+    print_list "${PROGRAMS_TO_INSTALL[@]}"
+
+    print_header "\`Snap\` packages"
+    print_list "${SNAPS_TO_INSTALL[@]}"
+
+    print_header "\`Flatpak\` packages"
+    print_list "${FLATPAKS_TO_INSTALL[@]}"
+    exit 0
+
+fi
+
+if [[ "$NOLOGO" == 0 ]]; then
+    print_logo drawings/installation.txt
 fi
 
 
@@ -95,7 +102,8 @@ if [[ "$INSTALL_PROGRAMS" == 1 ]]; then
 
     update_packages
 
-    add_repositories 'http://repo.code-industry.net/rpm/master-pdf-editor.repo' 'https://packages.microsoft.com/yumrepos/edge/config.repo' './repositories/google-chrome.repo'
+
+    add_repositories "${ADDITIONAL_REPOSITORIES[@]}"
     install_packages "${PROGRAMS_TO_INSTALL[@]}"
     update_packages
 
@@ -113,11 +121,10 @@ if [[ "$DISABLE_SCREENLOCKER" == 1 ]]; then
 fi
 
 if [[ "$ADD_DESKTOP_SHORTCUTS" == 1 ]]; then
-    add_shortcuts Zoom yandex-browser steam skypeforlinux r7-office-desktopeditors microsoft-edge google-chrome   chromium-gost gimp masterpdfeditor5 myoffice-text-home-edition 
+    print_log "Start adding desktop shortcuts"
+    add_shortcuts "${SHORTCUTS_TO_CREATE[@]}"
 fi
 
-if [[ $(command -v lolcat) != "" ]]; then
-    lolcat drawings/done.txt
-else
-    cat drawings/done.txt
+if [[ "$NOLOGO" == 0 ]]; then
+    print_logo drawings/done.txt
 fi

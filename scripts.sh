@@ -38,14 +38,19 @@ add_repositories() {
 }
 add_shortcuts() {
 
-    desktop_dir="$HOME/Рабочий стол"
-    echo $desktop_dir
+    desktop_dir="$(xdg-user-dir DESKTOP)"
+    print_log "Desktop directory: '$desktop_dir'"
 
     for app in $@
     do
+        print_log "Trying to add '$app' shortcut"
         link_file="/usr/share/applications/$app.desktop"
+        destination_file="$desktop_dir/$app"
         if [[ -f "$link_file" ]]; then
-            ln -s "$link_file" "$desktop_dir/$app.desktop"
+            print_log "Desktop file path for '$app': '$link_file'"
+            ln -s "$link_file" "$destination_file"
+        else
+            print_log "Icon for '$app' did not found" "WARN"
         fi
     done
 }
@@ -74,5 +79,56 @@ disable_screen_locking() {
         # TODO: ---
         echo "MATE"
         
+    fi
+}
+
+ENABLE_LOGS=0
+
+ENABLE_MD_FORMAT=0
+
+# Format {{{
+red=$(tput setaf 9)
+yellow=$(tput setaf 11)
+green=$(tput setaf 10)
+normal=$(tput sgr0)
+bold=$(tput bold)
+# }}}
+
+print_header() {
+    printf ${bold}
+    if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
+        printf "### $@\n\n"
+    else
+        printf "$@:\n"
+    fi
+    printf ${normal}
+}
+
+print_list() {
+    for item in $@
+    do
+        if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
+            echo "- $item"
+        else
+            printf "  $item\n"
+        fi
+    done
+    if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
+        echo ""
+    fi
+}
+print_error() {
+    echo "${red}$1${normal}" >&2 # &2 is stderr 
+}
+
+print_log() {
+
+    color=$green
+    if [[ "$2" == "WARN" ]]; then
+        color=$yellow
+    fi
+
+    if [[ "$ENABLE_LOGS" == 1 ]]; then
+        echo "$(date +%T) ${color}$1 ${normal}"
     fi
 }

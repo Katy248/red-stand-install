@@ -9,6 +9,8 @@ Options:
     -i, -ip, --install-programs     Install programs
     --list-programs                 Print programs to install into standard 
                                     output and exit 
-    -h, --help                      Print help message and exit
+    -md, --md                       Enable markdown formatting for outputs
+    --debug                         Enable debug info
+    -?, -h, --help                  Print help message and exit
 
 red-stand-install script by Katy248
