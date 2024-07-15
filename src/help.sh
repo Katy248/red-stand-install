@@ -6,11 +6,11 @@ get_help() {
     echo ""
 
     print_header "Actions:"
-    column -t -W 2 -s '|' $(dirname $0)/docs/actions.txt
+    column -t -W 2 -s '|' $(dirname $0)/src/help/actions.txt
     echo ""
 
     print_header "Options:"
-    column -t -W 2 -s '|' $(dirname $0)/docs/options.txt
+    column -t -W 2 -s '|' $(dirname $0)/src/help/options.txt
     echo ""
 
     print_header "Version:" 2
