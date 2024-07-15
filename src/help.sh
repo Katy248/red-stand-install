@@ -2,7 +2,7 @@
 
 get_help() {
     print_header "Usage:" 2
-    printf "    $(basename $0) <action> [options]\n"
+    printf "    $(basename $0) <action> [options]...\n"
     echo ""
 
     print_header "Actions:"
