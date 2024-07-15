@@ -1,5 +1,5 @@
 Usage:
-    [sudo] ./install.sh [options]
+    ./install.sh [options]
 
 Options:
     -as, --add-shortcuts            Add programs shortcuts to the user's

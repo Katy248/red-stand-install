@@ -1,22 +1,16 @@
 #!/bin/bash
-. ./scripts.sh
-. ./consts.sh
-. ./config.sh
 
+. $(dirname $0)/src/consts.sh
+. $(dirname $0)/src/config.sh
 
+. $(dirname $0)/src/scripts.sh
 
-check_root() {
-  if [[ "$(whoami)" != "root" ]]; then
-    print_error "This command should be run as root"
-    exit 1
-fi
-}
-check_no_root() {
-  if [[ "$(whoami)" == "root" ]]; then
-    print_error "This command should NOT be run as root"
-    exit 1
-fi
-}
+. $(dirname $0)/src/help.sh
+. $(dirname $0)/src/cmd.sh
+. $(dirname $0)/src/config_manager.sh
+
+load_config
+parse_cmd "$@"
 
 print_logo() {
     if [[ $(command -v lolcat) != "" ]]; then
@@ -28,60 +22,6 @@ print_logo() {
     fi
 }
 
-load_config "$CONFIG_FILE_PATH"
-
-for i in "$@"; do
-  case $i in
-    -i|-ip|--install-programs)
-        INSTALL_PROGRAMS=1
-        check_root
-        shift # past argument=value
-        ;;
-    -ds|--disable-screen-lock)
-        DISABLE_SCREENLOCKER=1
-        check_root
-        shift # past argument=value
-        ;;
-    -as|--add-shortcuts)
-        ADD_DESKTOP_SHORTCUTS=1
-        check_no_root
-        shift # past argument with no value
-        ;;
-    --list-programs)
-        LIST_PROGRAMS_TO_INSTALL=1
-        shift
-        ;;
-    -md|--md)
-        ENABLE_MD_FORMAT=1
-        shift
-        ;;
-    --nologo)
-        NOLOGO=1
-        shift
-        ;;
-    --no-upgrade)
-        NO_UPGRADE=1
-        shift
-        ;;
-    --config=*)
-        CONFIG_FILE_PATH="${i#*=}"
-        shift
-        ;;
-    --debug)
-        ENABLE_LOGS=1
-        shift
-        ;;
-    -\?|-h|--help)
-        cat docs/help.txt
-        exit 0
-        ;;
-    -*|--*|*)
-        print_error "Unknown option '$i'"
-        echo "Use \`--help\` to show all options"
-        exit 1
-        ;;
-  esac
-done
 
 if [[ "$LIST_PROGRAMS_TO_INSTALL" == 1 ]]; then
 

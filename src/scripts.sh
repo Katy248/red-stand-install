@@ -1,4 +1,5 @@
 #!/bin/bash
+
 update_packages() {
     dnf makecache
     dnf upgrade -y
@@ -83,16 +84,18 @@ disable_screen_locking() {
     fi
 }
 
-ENABLE_LOGS=0
+
 
 ENABLE_MD_FORMAT=0
 
 # Format {{{
+
 red=$(tput setaf 9)
 yellow=$(tput setaf 11)
 green=$(tput setaf 10)
 normal=$(tput sgr0)
 bold=$(tput bold)
+
 # }}}
 
 print_header() {
@@ -118,7 +121,7 @@ print_list() {
         if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
             echo "- $item"
         else
-            printf "  $item\n"
+            printf "    $item\n"
         fi
     done
     if [[ "$ENABLE_MD_FORMAT" == 1 ]]; then
