@@ -2,7 +2,7 @@
 
 get_help() {
     print_header "Usage:" 2
-    printf "    $(basename $0) <action> [options]...\n"
+    printf "    $(basename $0) [actions] [options]\n"
     echo ""
 
     print_header "Actions:"
@@ -13,7 +13,8 @@ get_help() {
     column -t -W 2 -s '|' $(dirname $0)/docs/options.txt
     echo ""
 
-    printf "${bold}Version:${normal} $(version)\n"
+    print_header "Version:" 2
+    echo "    $(version)"
 }
 
 version() {
