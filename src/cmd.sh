@@ -13,31 +13,50 @@ check_no_root() {
 fi
 }
 
+ACTION_SPECIFIED=0
+
 
 
 parse_cmd(){
     for i in "$@"; do
     case $i in
-        -i|-ip|--install-programs)
+# ACTIONS
+        -i|--install-programs)
             INSTALL_PROGRAMS=1
+            ACTION_SPECIFIED=1
             check_root
-            shift # past argument=value
-            ;;
-        -ds|--disable-screen-lock)
-            DISABLE_SCREENLOCKER=1
-            check_root
-            shift # past argument=value
-            ;;
-        -as|--add-shortcuts)
-            ADD_DESKTOP_SHORTCUTS=1
-            check_no_root
-            shift # past argument with no value
-            ;;
-        --list-programs)
-            LIST_PROGRAMS_TO_INSTALL=1
             shift
             ;;
-        -md|--md)
+        -d|--disable-screen-lock)
+            DISABLE_SCREENLOCKER=1
+            ACTION_SPECIFIED=1
+            check_root
+            shift
+            ;;
+        -a|--add-shortcuts)
+            ADD_DESKTOP_SHORTCUTS=1
+            ACTION_SPECIFIED=1
+            check_no_root
+            shift
+            ;;
+        -l|--list-programs)
+            LIST_PROGRAMS_TO_INSTALL=1
+            ACTION_SPECIFIED=1
+            shift
+            ;;
+        -\?|-h|--h|--help)
+            ACTION_SPECIFIED=1
+            print_log "Help command started"
+            get_help
+            exit 0
+            ;;
+        -v|--version)
+            ACTION_SPECIFIED=1
+            version
+            exit 0
+            ;;
+# OPTIONS
+        -m|-md|--md)
             ENABLE_MD_FORMAT=1
             shift
             ;;
@@ -52,11 +71,6 @@ parse_cmd(){
         --debug|--config=*)
             print_log "Unparsed parameter '$i'"
             shift
-            ;;
-        -\?|-h|--help)
-            print_log "Help command started"
-            get_help
-            exit 0
             ;;
         -*|--*|*)
             print_error "Unknown option '$i'"

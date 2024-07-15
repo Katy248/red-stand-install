@@ -1,0 +1,5 @@
+    --no-logo|Disable logo printing
+    --no-upgrade|Disable packages upgrades during script run    
+    -m, -md, --md|Enable markdown formatting for outputs
+    --debug|Enable debug info
+    --config=CONFIG|Define config file to use [default: ./rsirc]

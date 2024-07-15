@@ -22,6 +22,12 @@ print_logo() {
     fi
 }
 
+if [[ $ACTION_SPECIFIED == 0 ]]; then
+    print_error "No action specified"
+    get_help
+    exit 0
+fi
+
 
 if [[ "$LIST_PROGRAMS_TO_INSTALL" == 1 ]]; then
 
