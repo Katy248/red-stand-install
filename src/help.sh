@@ -2,7 +2,7 @@
 
 get_help() {
     root_dir=$(dirname "$0")
-    program_version=$(version)
+    program_version="$(git describe --tags)"
     
     print_header "Usage:" 2
     printf "    %s [actions] [options]\n" "$(basename "$0")"
@@ -20,10 +20,5 @@ get_help() {
     print_header "Version:" 2
     echo "    ${program_version}"
 }
-
-version() {
-    "$(git describe)"
-}
-
 
 print_log "File './src/help.sh' loaded"
