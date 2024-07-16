@@ -95,6 +95,9 @@ yellow=$(tput setaf 11)
 green=$(tput setaf 10)
 normal=$(tput sgr0)
 bold=$(tput bold)
+dim=$(tput dim)
+italic=$(tput sitm)
+reverse=$(tput rev)
 
 # }}}
 
