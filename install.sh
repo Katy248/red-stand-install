@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . "$(dirname "$0")/src/consts.sh"
-. "$(dirname "$0")/src/config.sh"
 
 . "$(dirname "$0")/src/scripts.sh"
 
@@ -9,6 +8,7 @@
 . "$(dirname "$0")/src/cmd.sh"
 . "$(dirname "$0")/src/config_manager.sh"
 
+parse_cli_config "$@"
 load_config
 parse_cmd "$@"
 

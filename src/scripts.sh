@@ -141,6 +141,6 @@ print_log() {
     
     if [[ "${ENABLE_LOGS}" == 1 ]]; then
         current_date=$(date +%T) || "current date"
-        echo "${current_date} ${color}${1}${normal}"
+        echo "[${current_date}] ${color}${1}${normal}"
     fi
 }

@@ -10,46 +10,55 @@ _DEFAULT_CONFIG_FILES=(                     \
     "/etc/${_CONFIG_FILE_NAME}"             \
 )
 
-for i in "$@"; do
-    case "${i}" in
-        --debug)
-            ENABLE_LOGS=1
-            shift
-        ;;
-        *)
-            shift
-        ;;
-    esac
-done
-for i in "$@"; do
-    case "${i}" in
-        --config=*)
-            CONFIG_FILE_PATH="${i#*=}"
-            shift
-        ;;
-        *)
-            shift
-        ;;
-    esac
-done
+CONFIG_FILE_PATH=0
+
+parse_cli_config() {
+    for i in "$@"; do
+        case "${i}" in
+            --debug)
+                ENABLE_LOGS=1
+                print_log "Logs enabled"
+                shift
+            ;;
+            -c=*|--config=*)
+                CONFIG_FILE_PATH="${i#*=}"
+                print_log "Config file is set to '${i#*=}' via cli"
+                shift
+            ;;
+            *)
+                shift
+            ;;
+        esac
+    done
+}
 
 load_config_file() {
+    print_log "Loading config file '${CONFIG_FILE_PATH}'"
     if test -f "$1" ; then
         . "$1"
         print_log "Config file '$1' loaded"
     else
-        print_error "Config file '$1' doesn't exist"
+        print_error "Config file '$1' doesn't exist, continue without config"
     fi
 }
 load_config() {
+    print_log "Start loading configuration"
+    
+    
+    if [[ "${CONFIG_FILE_PATH}" != 0 ]]; then
+        load_config_file "${CONFIG_FILE_PATH}"
+        return
+    fi
+    
     for file in "${_DEFAULT_CONFIG_FILES[@]}"; do
         if test -f "${file}" ; then
             CONFIG_FILE_PATH=${file}
             print_log "Config file is set to '${file}'"
             break
+        else
+            print_log "No config file in '${file}'" "WARN"
         fi
     done
     
-    print_log "Loading config file '${CONFIG_FILE_PATH}'"
     load_config_file "${CONFIG_FILE_PATH}"
 }

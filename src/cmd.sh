@@ -1,4 +1,5 @@
 #!/bin/bash
+. "$(dirname "$0")/src/config.sh"
 
 current_user=$(whoami) || "nobody"
 
@@ -15,11 +16,12 @@ check_no_root() {
     fi
 }
 
-export ACTION_SPECIFIED=0
+ACTION_SPECIFIED=0
 
 parse_cmd(){
+    print_log "Start parsing cli args"
     for i in "$@"; do
-        case "${i}" in
+        case $i in
             # ACTIONS
             -i|--install-programs)
                 INSTALL_PROGRAMS=1
@@ -52,7 +54,8 @@ parse_cmd(){
             ;;
             -v|--version)
                 ACTION_SPECIFIED=1
-                version
+                program_version="$(git describe --tags)"
+                echo "${program_version}"
                 exit 0
             ;;
             # OPTIONS
@@ -68,15 +71,17 @@ parse_cmd(){
                 NO_UPGRADE=1
                 shift
             ;;
-            --debug|--config=*)
+            # SPECIAL CASES
+            --debug|-c=*|--config=*)
                 print_log "Unparsed parameter '${i}'"
                 shift
             ;;
-            *)
+            -*|--*|*)
                 print_error "Unknown option '${i}'"
                 echo "Use \`--help\` to show all options"
                 exit 1
             ;;
         esac
     done
+    print_log "Finish parsing cli args"
 }
