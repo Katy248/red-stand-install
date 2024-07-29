@@ -14,11 +14,11 @@ get_help() {
     echo ""
     
     
-    print_header "Actions:"
+    print_header "Actions:" 2
     column -t -W 2 -s '|' "${root_dir}/src/help/actions.txt"
     echo ""
     
-    print_header "Options:"
+    print_header "Options:" 2
     column -t -W 2 -s '|' "${root_dir}/src/help/options.txt"
     echo ""
     

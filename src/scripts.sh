@@ -106,7 +106,7 @@ print_header() {
     if [[ "${ENABLE_MD_FORMAT}" == 1 ]]; then
         
         header=""
-        for i in $(seq 1 "${2}"); do
+        for i in $(seq '1' "${2}"); do
             header="${header}#"
         done
         
