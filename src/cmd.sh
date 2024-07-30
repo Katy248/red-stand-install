@@ -1,5 +1,4 @@
 #!/bin/bash
-. "$(dirname "$0")/src/config.sh"
 
 current_user=$(whoami) || "nobody"
 
@@ -45,6 +44,11 @@ parse_cmd(){
                 LIST_PROGRAMS_TO_INSTALL=1
                 ACTION_SPECIFIED=1
                 shift
+            ;;
+          --dump-config)
+                dump_config
+                exit 0
+              shift
             ;;
             -\?|-h|--h|--help)
                 ACTION_SPECIFIED=1

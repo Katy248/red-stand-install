@@ -84,10 +84,6 @@ disable_screen_locking() {
     fi
 }
 
-
-
-ENABLE_MD_FORMAT=0
-
 # Format {{{
 
 red=$(tput setaf 9)
@@ -142,7 +138,7 @@ print_log() {
         color=${yellow}
     fi
     
-    if [[ "${ENABLE_LOGS}" == 1 ]]; then
+    if [[ "${DEBUG}" == 1 ]]; then
         current_date=$(date +%T) || "current date"
         echo "[${current_date}] ${color}${1}${normal}"
     fi

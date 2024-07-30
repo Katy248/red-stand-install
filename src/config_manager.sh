@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. "$(dirname "$0")/src/config.sh"
+
 _CONFIG_FILE_NAME='rsirc'
 
 _DEFAULT_CONFIG_FILES=(                     \
@@ -16,7 +18,7 @@ parse_cli_config() {
     for i in "$@"; do
         case "${i}" in
             --debug)
-                ENABLE_LOGS=1
+                DEBUG=1
                 print_log "Logs enabled"
                 shift
             ;;
@@ -30,6 +32,20 @@ parse_cli_config() {
             ;;
         esac
     done
+}
+dump_config() {
+  printf "INSTALL_PROGRAMS=%s\n" "$INSTALL_PROGRAMS"
+  printf "ADD_DESKTOP_SHORTCUTS=%s\n" "$ADD_DESKTOP_SHORTCUTS"
+  printf "DISABLE_SCREENLOCKER=%s\n" "$DISABLE_SCREENLOCKER"
+  printf "# CONFIG_FILE_PATH=%s\n" "$CONFIG_FILE_PATH"
+  printf "LIST_PROGRAMS_TO_INSTALL=%s\n" "$LIST_PROGRAMS_TO_INSTALL"
+  printf "NOLOGO=%s\n" "$NOLOGO"
+  printf "NO_UPGRADE=%s\n" "$NO_UPGRADE"
+  printf "DEBUG=%s\n" "$DEBUG"
+  printf "ENABLE_MD_FORMAT=%s\n" "$ENABLE_MD_FORMAT"
+
+  #printf "LIST_PROGRAMS_TO_INSTALL: %s\n" "$NO_UPGRADE"
+  #printf "LIST_PROGRAMS_TO_INSTALL: %s\n" "$NO_UPGRADE"
 }
 
 load_config_file() {
