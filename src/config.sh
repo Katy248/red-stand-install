@@ -31,3 +31,11 @@ fi
 if [[ -z $ENABLE_MD_FORMAT ]]; then
   export ENABLE_MD_FORMAT=0
 fi
+
+if [[ -z $DOWNLOAD_RPM ]]; then
+  export DOWNLOAD_RPM=0
+fi
+
+if [[ -z $DESTDIR ]]; then
+  export DESTDIR="."
+fi

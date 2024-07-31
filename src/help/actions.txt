@@ -1,6 +1,7 @@
     -a, --add-shortcuts|Add programs shortcuts to the user's desktop directory (do not run as root)
     -d, --disable-screen-lock|Disable automatic screen lock (work only for Gnome and KDE)
     -i, --install-programs|Install programs
+    -r, --download-rpm|Download RPM packages to the destination directory
     -l, --list-programs|Print programs to install into standard output and exit
     --dump-config|Print configuration based on current options
     -v, --version|Print program version and exit

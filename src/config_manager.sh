@@ -43,6 +43,8 @@ dump_config() {
   printf "NO_UPGRADE=%s\n" "$NO_UPGRADE"
   printf "DEBUG=%s\n" "$DEBUG"
   printf "ENABLE_MD_FORMAT=%s\n" "$ENABLE_MD_FORMAT"
+  printf "DOWNLOAD_RPM=%s\n" "${DOWNLOAD_RPM}"
+  printf "DESTDIR=%s\n" "${DESTDIR}"
 
   #printf "LIST_PROGRAMS_TO_INSTALL: %s\n" "$NO_UPGRADE"
   #printf "LIST_PROGRAMS_TO_INSTALL: %s\n" "$NO_UPGRADE"

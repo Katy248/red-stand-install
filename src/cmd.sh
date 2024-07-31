@@ -40,6 +40,15 @@ parse_cmd(){
                 check_no_root
                 shift
             ;;
+            -r|--download-rpm)
+                DOWNLOAD_RPM=1
+                ACTION_SPECIFIED=1
+              shift
+            ;;
+            --destdir=*)
+              DESTDIR="${i#*=}"
+              shift
+            ;;
             -l|--list-programs)
                 LIST_PROGRAMS_TO_INSTALL=1
                 ACTION_SPECIFIED=1

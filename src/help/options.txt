@@ -1,3 +1,4 @@
+    --destdir=DIR|Specify destination directory for RPM packages downloading, don't use '~' ($DESTDIR) [default: .]
     --nologo|Disable logo printing ($NOLOGO)
     --no-upgrade|Disable packages upgrades during script run ($NO_UPGRADE)
     -m, -md, --md|Enable markdown formatting for outputs

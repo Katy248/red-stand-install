@@ -11,6 +11,17 @@ install_packages() {
         dnf install -y --skip-broken "${pak}"
     done
 }
+
+download_rpm() {
+  local destdir
+  destdir="$1"
+  print_log "Destination directory for rm download is: '${destdir}'"
+  for pak in "${@:2}"; do
+    print_log "Downloading '${pak}'"
+    dnf download "${pak}" --destdir "${destdir}"
+  done
+}
+
 setup_snap() {
     systemctl enable --now snapd
 }

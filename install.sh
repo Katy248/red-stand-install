@@ -40,13 +40,15 @@ if [[ "${LIST_PROGRAMS_TO_INSTALL}" == 1 ]]; then
     print_header "\`Flatpak\` packages" 3
     print_list "${FLATPAKS_TO_INSTALL[@]}"
     exit 0
-    
 fi
 
 if [[ "${NOLOGO}" == 0 ]]; then
     print_logo drawings/installation.txt
 fi
 
+if [[ "${DOWNLOAD_RPM}" == 1 ]]; then
+  download_rpm "${DESTDIR}" "${PROGRAMS_TO_INSTALL[@]}"
+fi
 
 if [[ "${INSTALL_PROGRAMS}" == 1 ]]; then
     
