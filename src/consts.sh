@@ -11,7 +11,7 @@ export ADDITIONAL_REPOSITORIES=(                                \
 
 export PROGRAMS_TO_INSTALL=(                                            \
     firefox yandex-browser-stable microsoft-edge-stable                 \
-    google-chrome-stable gimp r7-office master-pdf-editor thunderbird   \
+    google-chrome-stable gimp r7-release r7-office master-pdf-editor thunderbird   \
     "$_chromegost" "$_myoffice"                                         \
     snapd flatpak                                                       \
 )
