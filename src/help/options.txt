@@ -1,5 +1,5 @@
     --nologo|Disable logo printing ($NOLOGO)
-    --no-upgrade|Disable packages upgrades during script run    
+    --no-upgrade|Disable packages upgrades during script run ($NO_UPGRADE)
     -m, -md, --md|Enable markdown formatting for outputs
     --debug|Enable debug info ($DEBUG)
     -c, --config=CONFIG|Define config file to use [default: ./rsirc]

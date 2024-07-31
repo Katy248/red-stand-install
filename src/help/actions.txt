@@ -2,5 +2,6 @@
     -d, --disable-screen-lock|Disable automatic screen lock (work only for Gnome and KDE)
     -i, --install-programs|Install programs
     -l, --list-programs|Print programs to install into standard output and exit
+    --dump-config|Print configuration based on current options
     -v, --version|Print program version and exit
     -?, -h, --h, --help|Print help message and exit
