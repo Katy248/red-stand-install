@@ -1,0 +1,2 @@
+    -v, --version|Print program version and exit
+    -?, -h, --h, --help|Print help message and exit

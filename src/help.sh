@@ -22,6 +22,10 @@ get_help() {
     column -t -W 2 -s '|' "${root_dir}/src/help/options.txt"
     echo ""
     
+    print_header "Help options:" 2
+    column -t -W 2 -s '|' "${root_dir}/src/help/help.txt"
+    echo ""
+    
     print_header "Version:" 2
     echo "    ${program_version}"
 }
