@@ -1,0 +1,57 @@
+= Red stand install script
+
+== What does this script do?
+
+* [x] Install programs
+* [x] Add desktop icons
+* [ ] Change sleep settings
+** [x] GNOME
+** [x] KDE
+** [ ] Mate
+
+== Packages to install
+
+.`RPM` packages:
+
+* firefox
+* yandex-browser-stable
+* microsoft-edge-stable
+* google-chrome-stable
+* gimp
+* r7-office
+* master-pdf-editor
+* thunderbird
+* link:https://github.com/deemru/Chromium-Gost/releases/download/126.0.6478.56/chromium-gost-126.0.6478.56-linux-amd64.rpm[chromium-gost]
+* link:https://preset.myoffice-app.ru/myoffice-standard-home-edition-2.7.0-x86_64.rpm[my-office]
+* snapd
+* flatpak
+
+.`Snap` packages:
+
+* skype
+
+.`Flatpak` packages:
+
+* us.zoom.Zoom
+* com.valvesoftware.Steam
+* com.anydesk.Anydesk
+
+## One script run
+
+To run script without git run this:
+
+[source,bash]
+----
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
+----
+
+To only clone repository and run script on your own run this:
+
+[source,bash]
+----
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
+----
+
+== Usage
+
+link:pass:[./docs/red-stand-install.adoc][Man page]
