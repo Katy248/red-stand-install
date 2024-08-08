@@ -1,6 +1,7 @@
 = Red stand install script
-
+Katy248
 :favicon: https://www.libravatar.org/gravatarproxy/33396cb6c169b7fa08fafb345653aee268e9e618fda5de8b2bf9889d0413ea2e?s=16
+:toc:
 
 == What does this script do?
 
@@ -38,9 +39,9 @@
 * com.valvesoftware.Steam
 * com.anydesk.Anydesk
 
-## One script run
+== One script run
 
-To run script without git run this:
+To run script _without git_ run this:
 
 [source,bash]
 ----
