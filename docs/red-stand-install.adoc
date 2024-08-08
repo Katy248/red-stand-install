@@ -1,0 +1,72 @@
+:doctype: manpage
+:manmanual: red-stand-install.sh
+:mansource: red-stand-install.sh
+:man-linkstyle: pass:[blue R < >]
+
+= red-stand-install.sh(1)
+Katy248
+v0.4
+
+== Name
+
+red-stand-install.sh - setup script for stand computers
+
+== Synopsis
+
+*red-stand-install.sh* [_actions_] [_options_]
+
+== Actions
+
+*-a, --add-shortcuts*::
+Add programs shortcuts to the user's desktop directory (do not run as root)
+
+*-d, --disable-screen-lock*::
+Disable automatic screen lock (work only for Gnome and KDE)
+
+*-i, --install-programs*::
+Install programs
+
+*-r, --download-rpm*::
+Download RPM packages to the destination directory
+
+*-l, --list-programs*::
+Print programs to install into standard output and exit
+
+*--dump-config*::
+Print configuration based on current options
+
+== Options
+
+*--destdir*=_DIR_::
+Specify destination directory for RPM packages downloading, don't use "~" #($DESTDIR)# #[default: .]#
+
+*--nologo*::
+Disable logo printing ($NOLOGO)
+
+*--no-upgrade*::
+Disable packages upgrades during script run ($NO_UPGRADE)
+
+*-m, -md, --md*::
+Enable markdown formatting for outputs
+
+*--debug*::
+Enable debug info ($DEBUG)
+
+*-c, --config*=_CONFIG_::
+Define config file to use [default: ./rsirc]
+
+== Help options
+
+*-?, -h, --h, --help*::
+Print help message and exit
+
+*-v, --version*::
+Print program version and exit
+
+== Resources
+
+*Project source code:* https://github.com/Katy248/red-stand-install
+
+== Copyright
+
+No copyright {author}
