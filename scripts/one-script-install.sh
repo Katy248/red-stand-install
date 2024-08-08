@@ -1,14 +1,18 @@
 #!/bin/bash
 
+install_programs() {
+  dnf install git -y
+  dnf install lolcat -y
+}
+
 repository='https://github.com/Katy248/red-stand-install.git'
 dir='install-scripts'
 
-pkexec dnf install git -y
-pkexec dnf install lolcat -y
+pkexec install_programs
 
-mkdir "$dir"
+mkdir -p "$dir"
 cd "$dir" || exit 1
 git clone "$repository" .
 
-pkexec bash install.sh --install-programs --disable-screen-lock
+sudo bash install.sh --install-programs --disable-screen-lock
 bash install.sh --add-shortcuts
