@@ -13,7 +13,7 @@
 
 == Packages to install
 
-.`RPM` packages:
+.*`RPM` packages:*
 
 * firefox
 * yandex-browser-stable
@@ -28,11 +28,11 @@
 * snapd
 * flatpak
 
-.`Snap` packages:
+.*`Snap` packages:*
 
 * skype
 
-.`Flatpak` packages:
+.*`Flatpak` packages:*
 
 * us.zoom.Zoom
 * com.valvesoftware.Steam
