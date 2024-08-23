@@ -50,29 +50,17 @@ if [[ "${DOWNLOAD_RPM}" == 1 ]]; then
   download_rpm "${DESTDIR}" "${PROGRAMS_TO_INSTALL[@]}"
 fi
 
+
 if [[ "${INSTALL_PROGRAMS}" == 1 ]]; then
+  if [[ "${POLKIT}" == 1 ]]; then 
+    link=$(readlink -f "$0")
+    dir=$(dirname "${link}")
+    pkexec bash "${dir}/src/install_action.sh"
+  else
+    check_root
+    . "$(dirname "$0")/src/install_action.sh"
+  fi
     
-    if [[ "${NO_UPGRADE}" == 0 ]]; then
-        update_packages
-    fi
-    
-    add_repositories "${ADDITIONAL_REPOSITORIES[@]}"
-    install_packages "${PROGRAMS_TO_INSTALL[@]}"
-    if [[ "${NO_UPGRADE}" == 0 ]]; then
-        update_packages
-    fi
-    
-    setup_snap
-    install_snaps "${SNAPS_TO_INSTALL[@]}"
-    
-    setup_flathub
-    if [[ "${NO_UPGRADE}" == 0 ]]; then
-        update_flatpaks
-    fi
-    install_flatpaks "${FLATPAKS_TO_INSTALL[@]}"
-    if [[ "${NO_UPGRADE}" == 0 ]]; then
-        update_flatpaks
-    fi
 fi
 
 if [[ "${DISABLE_SCREENLOCKER}" == 1 ]]; then
@@ -80,6 +68,7 @@ if [[ "${DISABLE_SCREENLOCKER}" == 1 ]]; then
 fi
 
 if [[ "${ADD_DESKTOP_SHORTCUTS}" == 1 ]]; then
+    check_no_root
     print_log "Start adding desktop shortcuts"
     add_shortcuts "${SHORTCUTS_TO_CREATE[@]}"
 fi
