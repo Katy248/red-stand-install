@@ -1,6 +1,7 @@
+    -c, --config=CONFIG|Define config file to use [default: ./rsirc]
+    --debug|Enable debug info ($DEBUG)
     --destdir=DIR|Specify destination directory for RPM packages downloading, don't use '~' ($DESTDIR) [default: .]
+    -m, -md, --md|Enable markdown formatting for outputs
     --nologo|Disable logo printing ($NOLOGO)
     --no-upgrade|Disable packages upgrades during script run ($NO_UPGRADE)
-    -m, -md, --md|Enable markdown formatting for outputs
-    --debug|Enable debug info ($DEBUG)
-    -c, --config=CONFIG|Define config file to use [default: ./rsirc]
+    -p, --polkik|Use polkit for super user privelegies ($POLKIT)

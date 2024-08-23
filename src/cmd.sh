@@ -25,19 +25,16 @@ parse_cmd(){
             -i|--install-programs)
                 INSTALL_PROGRAMS=1
                 ACTION_SPECIFIED=1
-                check_root
                 shift
             ;;
             -d|--disable-screen-lock)
                 DISABLE_SCREENLOCKER=1
                 ACTION_SPECIFIED=1
-                check_root
                 shift
             ;;
             -a|--add-shortcuts)
                 ADD_DESKTOP_SHORTCUTS=1
                 ACTION_SPECIFIED=1
-                check_no_root
                 shift
             ;;
             -r|--download-rpm)
@@ -88,6 +85,12 @@ parse_cmd(){
             --debug|-c=*|--config=*)
                 print_log "Unparsed parameter '${i}'"
                 shift
+            ;;
+            -p|--polkit)
+              print_log "Polkit usage enabled"
+              POLKIT=1
+            
+              shift
             ;;
             -*|--*|*)
                 print_error "Unknown option '${i}'"

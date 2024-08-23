@@ -11,7 +11,7 @@ dim=$(tput dim)
 italic=$(tput sitm)
 reverse=$(tput rev)
 
-# }}}2
+# }}}1
 
 print_header() {
   local header_text=$1

@@ -39,3 +39,7 @@ fi
 if [[ -z $DESTDIR ]]; then
   export DESTDIR="."
 fi
+
+if [[ -z $POLKIT ]]; then
+  export POLKIT=0
+fi
