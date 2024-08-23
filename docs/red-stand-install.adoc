@@ -1,7 +1,6 @@
 :doctype: manpage
 :manmanual: red-stand-install.sh
 :mansource: red-stand-install.sh
-:man-linkstyle: pass:[blue R < >]
 
 = red-stand-install.sh(1)
 Katy248
@@ -54,6 +53,9 @@ Enable debug info *($DEBUG)*
 
 *-c, --config*=_CONFIG_::
 Define config file to use *[default: ./rsirc]*
+
+*-p, --polkit*::
+Use polkit for super user privelegies ($POLKIT)
 
 == Help options
 
