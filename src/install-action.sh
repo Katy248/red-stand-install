@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. "$(dirname "$0")/scripts.sh"
+
 if [[ "${NO_UPGRADE}" == 0 ]]; then
         update_packages
     fi
