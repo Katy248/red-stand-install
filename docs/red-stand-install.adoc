@@ -20,7 +20,7 @@ red-stand-install.sh - setup script for stand computers
 Add programs shortcuts to the user's desktop directory (do not run as root)
 
 *-d, --disable-screen-lock*::
-Disable automatic screen lock (work only for _Gnome_ and _KDE_)
+Disable automatic screen lock (work only for **_Gnome_** and _KDE_)
 
 *-i, --install-programs*::
 Install programs
@@ -55,7 +55,7 @@ Enable debug info *($DEBUG)*
 Define config file to use *[default: ./rsirc]*
 
 *-p, --polkit*::
-Use polkit for super user privelegies ($POLKIT)
+Use polkit for super user privelegies *($POLKIT)*
 
 == Help options
 
