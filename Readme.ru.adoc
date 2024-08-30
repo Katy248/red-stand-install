@@ -5,7 +5,7 @@
 
 image:https://img.shields.io/github/languages/top/katy248/red-stand-install?style=for-the-badge[GitHub top language]
 
-link:./Readme.ru.adoc[In English]
+link:./Readme.adoc[In English]
 
 == Что этот скрипт делает?
 
