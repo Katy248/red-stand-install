@@ -55,10 +55,10 @@ if [[ "${INSTALL_PROGRAMS}" == 1 ]]; then
   if [[ "${POLKIT}" == 1 ]]; then 
     link=$(readlink -f "$0")
     dir=$(dirname "${link}")
-    pkexec bash "${dir}/src/install_action.sh"
+    pkexec bash "${dir}/src/install-action.sh"
   else
     check_root
-    . "$(dirname "$0")/src/install_action.sh"
+    . "$(dirname "$0")/src/install-action.sh"
   fi
     
 fi
