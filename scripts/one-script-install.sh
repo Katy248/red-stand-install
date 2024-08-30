@@ -21,5 +21,5 @@ mkdir -p "${dir}"
 cd "${dir}" || exit 1
 git clone "${repository}" .
 
-sudo bash install.sh --install-programs --disable-screen-lock
-bash install.sh --add-shortcuts
+sudo bash install.sh --install-programs
+bash install.sh --add-shortcuts --disable-screen-lock
