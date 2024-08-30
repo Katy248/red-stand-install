@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")/scripts.sh"
+. "$(dirname "$0")/src/scripts.sh"
 
 if [[ "${NO_UPGRADE}" == 0 ]]; then
         update_packages
