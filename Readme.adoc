@@ -3,6 +3,10 @@ Katy248
 :favicon: https://www.libravatar.org/gravatarproxy/33396cb6c169b7fa08fafb345653aee268e9e618fda5de8b2bf9889d0413ea2e?s=16
 :toc:
 
+image:https://img.shields.io/github/languages/top/katy248/red-stand-install?style=for-the-badge[GitHub top language]
+
+link:./Readme.ru.adoc[На русском]
+
 == What does this script do?
 
 * [x] Install programs
