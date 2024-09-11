@@ -19,6 +19,9 @@ red-stand-install.sh - setup script for stand computers
 *-a, --add-shortcuts*::
 Add programs shortcuts to the user's desktop directory (do not run as root)
 
+*--add-virt*::
+Add '`10.81.11.22 engine.redvirt.tst`' line to '`/etc/hosts`'. Must use with root
+
 *-d, --disable-screen-lock*::
 Disable automatic screen lock (work only for **_Gnome_** and _KDE_)
 
@@ -53,9 +56,6 @@ Enable debug info *($DEBUG)*
 
 *-c, --config*=_CONFIG_::
 Define config file to use *[default: ./rsirc]*
-
-*-p, --polkit*::
-Use polkit for super user privelegies *($POLKIT)*
 
 == Help options
 

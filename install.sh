@@ -52,15 +52,17 @@ fi
 
 
 if [[ "${INSTALL_PROGRAMS}" == 1 ]]; then
-  if [[ "${POLKIT}" == 1 ]]; then 
-    link=$(readlink -f "$0")
-    dir=$(dirname "${link}")
-    pkexec bash "${dir}/src/install-action.sh"
-  else
     check_root
     . "$(dirname "$0")/src/install-action.sh"
-  fi
-    
+fi
+
+if [[ "${ADD_VIRT}" == 1 ]]; then 
+  check_root
+  { 
+    echo "# Added via red-stand-install script" ; 
+    echo "# For more info visit https://github.com/Katy248/red-stand-install" ;
+    echo "10.81.11.22 engine.redvirt.tst" ; 
+  } >> /etc/hosts
 fi
 
 if [[ "${DISABLE_SCREENLOCKER}" == 1 ]]; then

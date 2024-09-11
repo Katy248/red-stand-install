@@ -1,4 +1,5 @@
     -a, --add-shortcuts|Add programs shortcuts to the user's desktop directory (do not run as root)
+    --add-virt|Add engine.redvirt.tst to hosts file
     -d, --disable-screen-lock|Disable automatic screen lock (work only for Gnome and KDE)
     -i, --install-programs|Install programs
     -r, --download-rpm|Download RPM packages to the destination directory

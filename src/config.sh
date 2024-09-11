@@ -40,6 +40,6 @@ if [[ -z $DESTDIR ]]; then
   export DESTDIR="."
 fi
 
-if [[ -z $POLKIT ]]; then
-  export POLKIT=0
+if [[ -z $ADD_VIRT ]]; then
+  export ADD_VIRT=0
 fi

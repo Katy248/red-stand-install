@@ -56,6 +56,11 @@ parse_cmd(){
                 exit 0
               shift
             ;;
+          --add-virt)
+              ADD_VIRT=1
+              ACTION_SPECIFIED=1
+            shift
+            ;;
             -\?|-h|--h|--help)
                 ACTION_SPECIFIED=1
                 print_log "Help command started"
@@ -85,12 +90,6 @@ parse_cmd(){
             --debug|-c=*|--config=*)
                 print_log "Unparsed parameter '${i}'"
                 shift
-            ;;
-            -p|--polkit)
-              print_log "Polkit usage enabled"
-              POLKIT=1
-            
-              shift
             ;;
             -*|--*|*)
                 print_error "Unknown option '${i}'"
