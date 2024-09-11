@@ -1,0 +1,41 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Terminal=true
+Name=Red Stand Install
+GenericName=Setup Sript
+Comment=Setup script for stand computers
+Comment[ru]=Скрипт настройки для стендовых компьютеров
+Categories=System;Settings;Programs;
+Keywords=Red;Stand;Katy248;Script;
+# TerminalOptions=--noclose
+
+Exec=man red-stand-install
+
+Actions=shortcuts;screenlock;help;web-help
+
+[Desktop Action help]
+Terminal=true
+Name=Help
+Name[ru]=Помощь
+Exec=man red-stand-install
+
+[Desktop Action web-help]
+Name=Web help
+Name[ru]=Помощь (веб)
+Exec=man red-stand-install
+
+# [Desktop Action install]
+# Name=Install programs
+# Name[ru]=Установка программ
+# Exec=pkexec /usr/bin/red-stand-install --install-programs
+
+[Desktop Action shortcuts]
+Name=Add shortcuts
+Name[ru]=Добавлеение ярлыков
+Exec=/usr/bin/red-stand-install --add-shortcuts
+
+[Desktop Action screenlock]
+Name=Disable screenlock
+Name[ru]=Отключение сна
+Exec=/usr/bin/red-stand-install --add-shortcuts

@@ -2,15 +2,16 @@
 
 get_help() {
     root_dir=$(dirname "$0")
+    program_name="red-stand-install"
     program_version="$(git describe --tags)"
     
     print_header "Name:" 2
-    printf "    %s - script for setup stand computers on REDOS\n" "${italic}$(basename "$0")${normal}"
+    printf "    %s - script for setup stand computers on REDOS\n" "${italic}${program_name}${normal}"
     echo ""
     
     
     print_header "Usage:" 2
-    printf "    %s [actions] [options]\n" "${italic}$(basename "$0")${normal}"
+    printf "    %s [actions] [options]\n" "${italic}${program_name}${normal}"
     echo ""
     
     
