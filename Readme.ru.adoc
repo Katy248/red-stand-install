@@ -21,19 +21,20 @@ link:./Readme.adoc[In English]
 
 Не стоит запускать скрипты от имени суперпользователя, необходимые для работы права будут запрошены в ходе выполнения.
 
+=== Для запуска в системе с пользователем в группе `wheel`
+
 Для запуска скрипта  без `git` запустите:
 
-[source,bash]
+[source,console]
 ----
-curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
+$ curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
 ----
-
 
 Только для клонирования репозитория и запуска самостоятельно, запустите:
 
-[source,bash]
+[source,console]
 ----
-curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
+$ curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
 ----
 
 == Использование
