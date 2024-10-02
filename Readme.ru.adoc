@@ -27,14 +27,21 @@ link:./Readme.adoc[In English]
 
 [source,console]
 ----
-$ curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
 ----
 
 Только для клонирования репозитория и запуска самостоятельно, запустите:
 
 [source,console]
 ----
-$ curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
+----
+
+=== Для запуска в системе без `sudo`
+
+[source,console]
+----
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install-without-sudo.sh | bash
 ----
 
 == Использование
