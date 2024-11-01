@@ -1,37 +1,49 @@
-= Red stand install script
-Katy248
+= Установочный скрипт
 :favicon: https://www.libravatar.org/gravatarproxy/33396cb6c169b7fa08fafb345653aee268e9e618fda5de8b2bf9889d0413ea2e?s=16
 :toc:
+:toc-title: Содержание
 
 image:https://img.shields.io/github/languages/top/katy248/red-stand-install?style=for-the-badge[GitHub top language]
 
-link:./Readme.ru.adoc[На русском]
+link:./Readme.adoc[In English]
 
-== What does this script do?
+== Что этот скрипт делает?
 
-* [x] Install programs
-* [x] Add desktop icons
-* [ ] Change sleep settings
+* [x] Устанавливает программы
+* [x] Добавляет иконки на рабочий стол
+* [ ] Изменяет настройки спящего режима для:
 ** [x] GNOME
 ** [x] KDE
 ** [ ] Mate
 
-== One script run
 
-To run script _without git_ run this:
+== Запуск в одну строку
 
-[source,bash]
+Не стоит запускать скрипты от имени суперпользователя, необходимые для работы права будут запрошены в ходе выполнения.
+
+=== Для запуска в системе с пользователем в группе `wheel`
+
+Для запуска скрипта  без `git` запустите:
+
+[source,console]
 ----
 curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install.sh | bash
 ----
 
-To only clone repository and run script on your own run this:
+Только для клонирования репозитория и запуска самостоятельно, запустите:
 
-[source,bash]
+[source,console]
 ----
 curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script.sh | bash
 ----
 
-== Usage
+=== Для запуска в системе без `sudo`
 
-link:pass:[./docs/red-stand-install.adoc][Man page]
+[source,console]
+----
+curl https://raw.githubusercontent.com/Katy248/red-stand-install/main/scripts/one-script-install-without-sudo.sh | bash
+----
+
+== Использование
+
+link:pass:[./docs/red-stand-install.adoc][Руководство (на английском)]
