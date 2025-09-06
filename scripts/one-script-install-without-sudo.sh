@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_programs() {
-    pkexec dnf install git lolcat -y
+  pkexec dnf install git lolcat -y
 }
 
 repository='https://github.com/Katy248/red-stand-install.git'
