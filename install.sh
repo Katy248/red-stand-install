@@ -18,7 +18,7 @@ print_logo() {
     lolcat "$1"
   else
     print_log "Program lolcat did not found, cat will be used"
-    echo "$1"
+    cat "$1"
   fi
 }
 
