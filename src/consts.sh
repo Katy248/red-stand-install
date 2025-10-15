@@ -13,7 +13,7 @@ export PROGRAMS_TO_INSTALL=(
   firefox yandex-browser-release yandex-browser-stable microsoft-edge-stable
   google-chrome-stable gimp r7-release r7-office master-pdf-editor thunderbird
   "$_chromegost" "$_myoffice"
-  snapd flatpak
+  snapd flatpak fastfetch
 )
 
 export SNAPS_TO_INSTALL=()
@@ -34,10 +34,14 @@ export SHORTCUTS_TO_CREATE=(
   "${_USR_APP_DIR}/google-chrome.desktop"
   "${_USR_APP_DIR}/chromium-gost.desktop"
   "${_USR_APP_DIR}/gimp.desktop"
+  "${_USR_APP_DIR}/vlc.desktop"
+  "${_USR_APP_DIR}/org.gnome.DiskUtility.desktop"
   "${_USR_APP_DIR}/masterpdfeditor5.desktop"
+  "${_USR_APP_DIR}/hardinfo.desktop"
+  "${_USR_APP_DIR}/org.gnome.SystemMonitor.desktop"
+  "${_USR_APP_DIR}/org.redos.redoswelcome.desktop"
   "${_USR_APP_DIR}/myoffice-text-home-edition.desktop"
   "${_FLATPACK_APP_DIR}/${_steam}.desktop"
   "${_FLATPACK_APP_DIR}/${_anydesk}.desktop"
   "${_FLATPACK_APP_DIR}/${_zoom}.desktop"
 )
-# TODO: Add Skype shortcut
